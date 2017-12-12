@@ -21,10 +21,5 @@
     "type": "git",
     "url": "https://github.com/andymerryman/replay-secretizer"
   },
-   "licenses": [
-     {
-       "type": "MIT",
-       "url": "https://github.com/assaf/node-replay/blob/master/MIT-LICENSE"
-     }
-   ]
+  "license": "MIT"
 }
