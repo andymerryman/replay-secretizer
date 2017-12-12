@@ -1,0 +1,16 @@
+GET /api/v1/content/1.json?api-key=mysecretkey
+host: some.website.com
+accept: application/json
+
+HTTP/1.1 200 OK
+date: Tue, 05 Dec 2017 19:47:22 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: close
+server: nginx
+cache-control: max-age=900, public
+x-varnish: 2252390435 2252384751
+age: 185
+via: 1.1 varnish
+
+{"uri":"https:\/\/some.website.com\/api\/v1\/content\/1.json?apikey=mysecretkey"}
