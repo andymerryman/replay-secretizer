@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "replay-secretizer",
   "version": "0.0.1",
-  "description": "",
+  "description": "Fixture scrubber to remove secrets from replayjs fixtures",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -16,5 +16,15 @@
     "mocha": "^3.2.0",
     "ncp": "^2.0.0",
     "rimraf": "^2.5.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andymerryman/replay-secretizer"
+  },
+   "licenses": [
+     {
+       "type": "MIT",
+       "url": "https://github.com/assaf/node-replay/blob/master/MIT-LICENSE"
+     }
+   ]
 }
