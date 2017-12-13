@@ -116,12 +116,13 @@ function regexifyFile(filepath, secrets_arr){
                     theParam = theParam.split("\\\\").join("\\");
                     outputStr = outputStr.replace(rx, theParam + "\\=[0-9a-zA-Z]+");
                 }
-                //finally, wrap the regex portion with forward-slashes and run tell it to run globally
-                outputStr = outputStr.replace(/(\S+)$/g, "/$1/g");
+                //finally, wrap the regex portion with forward-slashes, add markers for the beginning and end of the
+                //string for a more exact match, and run tell it to run globally
+                outputStr = outputStr.replace(/(\S+)$/g, "/^$1$/g");
 
             content[0] = outputStr;
             content = content.join("\n");
-            //console.log(content);
+            console.log(content);
 
             //update the file with the modified content
             fs.writeFile(filepath, content, { encoding: 'utf-8' }, function(err) {
