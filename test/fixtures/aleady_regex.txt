@@ -1,0 +1,11 @@
+GET REGEX /\/api\/v1\/content\/foo\.json/g
+host: some.website.com
+accept: application/json
+
+HTTP/1.1 200 OK
+server: nginx/1.10.3
+date: Tue, 05 Dec 2017 19:47:22 GMT
+content-length: 1608
+connection: close
+
+{"uri":"https:\/\/some.website.com\/videos\/Bar_2008P-450k.mp4?apikey=mysecretkey"}

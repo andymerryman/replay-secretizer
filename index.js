@@ -85,6 +85,10 @@ function regexifyFile(filepath, secrets_arr){
             }
             var content = data.split("\n");
 
+            //stop here if the url's already a regex
+            if (content[0].indexOf("REGEXP") !== 0)
+                return resolve();
+
             //operate on the first line of the file here. We're going to change the path
             //to be a regex that accepts any API key (for testing / secret-exposure purposes).
             //Example: This should take a line that reads
