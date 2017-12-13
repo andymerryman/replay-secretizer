@@ -86,7 +86,7 @@ function regexifyFile(filepath, secrets_arr){
             var content = data.split("\n");
 
             //stop here if the url's already a regex
-            if (content[0].indexOf("REGEXP") !== 0)
+            if (content[0].indexOf("REGEXP") !== -1)
                 return resolve();
 
             //operate on the first line of the file here. We're going to change the path
