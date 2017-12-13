@@ -124,7 +124,7 @@ function regexifyFile(filepath, secrets_arr){
             //console.log(content);
 
             //update the file with the modified content
-            fs.writeFile(filepath, content, function(err) {
+            fs.writeFile(filepath, content, { encoding: 'utf-8' }, function(err) {
                 if(err) {
                     console.error(err);
                     return reject();
@@ -158,7 +158,7 @@ function redactFile(filepath, stringsAndPatternsToRedactArr){
 
             //console.log(content);
             //update the file with the modified content
-            fs.writeFile(filepath, content, function(err) {
+            fs.writeFile(filepath, content, { encoding: 'utf-8' }, function(err) {
                 if(err) {
                     console.error(err);
                     return reject();
