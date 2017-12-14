@@ -111,10 +111,10 @@ function regexifyFile(filepath, secrets_arr){
                     theParam = theParam.replace(/[/.=?&_-]+/g, function(a, b){
                         return `\\\\${a}`;
                     });
-                    var rx = new RegExp(theParam + "\\\\=([0-9a-zA-Z]+)", 'g');
+                    var rx = new RegExp(theParam + "\\\\=([0-9a-zA-Z_-]+)", 'g');
                     //console.log(rx, 'expression');
                     theParam = theParam.split("\\\\").join("\\");
-                    outputStr = outputStr.replace(rx, theParam + "\\=[0-9a-zA-Z]+");
+                    outputStr = outputStr.replace(rx, theParam + "\\=[0-9a-zA-Z_-]+");
                 }
                 //finally, wrap the regex portion with forward-slashes, add markers for the beginning and end of the
                 //string for a more exact match, and run tell it to run globally
