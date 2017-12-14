@@ -11,9 +11,9 @@ let defaultParamsToRegexify = [
 //always replace capture group 2 (the kv pair value) in these patterns with 'redacted'
 let defaultStringsAndPatternsToRedact = [
     new RegExp(/(Authorization\:\ Basic\ )([0-9a-zA-Z.=?&_-]+)/ig), //any basic auth headers
-    new RegExp(/(apikey\=)([0-9a-zA-Z]+)/ig), //any api keys params in the body
-    new RegExp(/(api\-key\=)([0-9a-zA-Z]+)/ig), //any api keys params in the body, dasherized
-    new RegExp(/(api\_key\=)([0-9a-zA-Z]+)/ig) //any api keys params in the body, underscored
+    new RegExp(/(apikey\=)([0-9a-zA-Z_-]+)/ig), //any api keys params in the body
+    new RegExp(/(api\-key\=)([0-9a-zA-Z_-]+)/ig), //any api keys params in the body, dasherized
+    new RegExp(/(api\_key\=)([0-9a-zA-Z_-]+)/ig) //any api keys params in the body, underscored
 ]
 
 function regexifyAndRedactFixturesInDirectory(dir, opts){
