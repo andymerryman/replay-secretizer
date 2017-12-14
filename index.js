@@ -9,7 +9,7 @@ let defaultParamsToRegexify = [
 ]
 
 //always replace capture group 2 (the kv pair value) in these patterns with 'redacted'
-let defaultPatternsToRedact = [
+let defaultStringsAndPatternsToRedact = [
     new RegExp(/(Authorization\:\ Basic\ )([0-9a-zA-Z.=?&_-]+)/ig), //any basic auth headers
     new RegExp(/(apikey\=)([0-9a-zA-Z]+)/ig), //any api keys params in the body
     new RegExp(/(api\-key\=)([0-9a-zA-Z]+)/ig), //any api keys params in the body, dasherized
@@ -137,7 +137,7 @@ function regexifyFile(filepath, secrets_arr){
 }
 
 function redactFile(filepath, stringsAndPatternsToRedactArr){
-    stringsAndPatternsToRedactArr = stringsAndPatternsToRedactArr || defaultPatternsToRedact ;
+    stringsAndPatternsToRedactArr = stringsAndPatternsToRedactArr || defaultStringsAndPatternsToRedact ;
     return new Promise(function (resolve, reject) {
         fs.readFile(filepath,"utf8", function read(err, data) {
             if (err) {
@@ -203,5 +203,7 @@ function getFilesIn (dir) {
 module.exports = {
     all: regexifyAndRedactFixturesInDirectory,
     regexify: regexifyFixturesInDirectory,
-    redact: redactFixturesInDirectory
+    redact: redactFixturesInDirectory,
+    defaultStringsAndPatternsToRedact: defaultStringsAndPatternsToRedact,
+    defaultParamsToRegexify: defaultParamsToRegexify
 }
