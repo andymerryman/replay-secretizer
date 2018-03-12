@@ -101,14 +101,14 @@ function regexifyFile(filepath, secrets_arr){
                     .replace(/([A-Z]+)\ (.*)/, "$1 REGEXP $2")
 
                     //escape special characters to start to transform the path to a regex
-                    .replace(/[/.=?&_-]+/g, function(a, b){
+                    .replace(/[/.=?&_-]|\[|\]+/g, function(a, b){
                         return `\\${a}`;
                     });
 
                 for (var i = 0; i < defaultParamsToRegexify.length; i++){
                     //replace any specified param value with an unescaped string version of a regex that'll match
                     var theParam = defaultParamsToRegexify[i];
-                    theParam = theParam.replace(/[/.=?&_-]+/g, function(a, b){
+                    theParam = theParam.replace(/[/.=?&_-]|\[|\]+/g, function(a, b){
                         return `\\\\${a}`;
                     });
                     var rx = new RegExp(theParam + "\\\\=([0-9a-zA-Z_-]+)", 'g');

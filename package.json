@@ -1,6 +1,6 @@
 {
   "name": "replay-secretizer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Fixture scrubber to remove secrets from replayjs fixtures",
   "main": "index.js",
   "scripts": {
