@@ -118,7 +118,7 @@ function regexifyFile(filepath, secrets_arr){
                 }
                 //finally, wrap the regex portion with forward-slashes, add markers for the beginning and end of the
                 //string for a more exact match, and run tell it to run globally
-                outputStr = outputStr.replace(/(\S+)$/g, "/^$1$/g");
+                outputStr = outputStr.replace(/(\S+)$/g, "/^$1$/");
 
             content[0] = outputStr;
             content = content.join("\n");
